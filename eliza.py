@@ -3,6 +3,8 @@ import random
 import re
 from collections import namedtuple
 
+from speech import speech
+
 # Fix Python2/Python3 incompatibility
 try: input = raw_input
 except NameError: pass
@@ -209,10 +211,16 @@ class Eliza:
         return random.choice(self.initials)
 
     def final(self):
+         
+         
+        speech(random.choice(self.finals))
         return random.choice(self.finals)
+       
+       
 
     def run(self):
         print(self.initial())
+        speech("how do you do, Please tell me your problem")
 
         while True:
             sent = input('> ')
@@ -222,6 +230,7 @@ class Eliza:
                 break
 
             print(output)
+            speech(output)
 
         print(self.final())
 
